@@ -15,6 +15,7 @@
 		2C5E512624B37C8E00CBE858 /* MountainsRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5E512524B37C8E00CBE858 /* MountainsRawData.swift */; };
 		2C5E512824B37E7D00CBE858 /* Mountain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5E512724B37E7D00CBE858 /* Mountain.swift */; };
 		2C5E512A24B37F1D00CBE858 /* MountainsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5E512924B37F1D00CBE858 /* MountainsController.swift */; };
+		2C70D22B24B3D892009B6744 /* MountainsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C70D22A24B3D892009B6744 /* MountainsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		2C5E512524B37C8E00CBE858 /* MountainsRawData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsRawData.swift; sourceTree = "<group>"; };
 		2C5E512724B37E7D00CBE858 /* Mountain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mountain.swift; sourceTree = "<group>"; };
 		2C5E512924B37F1D00CBE858 /* MountainsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsController.swift; sourceTree = "<group>"; };
+		2C70D22A24B3D892009B6744 /* MountainsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,8 @@
 		2C5E510F24B3760400CBE858 /* MountainSearch */ = {
 			isa = PBXGroup;
 			children = (
+				2C70D22924B3D881009B6744 /* Controllers */,
+				2C70D22824B3D863009B6744 /* Views */,
 				2C5E512424B37C7000CBE858 /* Models */,
 				2C5E511024B3760400CBE858 /* AppDelegate.swift */,
 				2C5E511424B3760400CBE858 /* ViewController.swift */,
@@ -79,6 +83,21 @@
 				2C5E512924B37F1D00CBE858 /* MountainsController.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2C70D22824B3D863009B6744 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2C70D22924B3D881009B6744 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2C70D22A24B3D892009B6744 /* MountainsViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +174,7 @@
 				2C5E512824B37E7D00CBE858 /* Mountain.swift in Sources */,
 				2C5E511524B3760400CBE858 /* ViewController.swift in Sources */,
 				2C5E512624B37C8E00CBE858 /* MountainsRawData.swift in Sources */,
+				2C70D22B24B3D892009B6744 /* MountainsViewController.swift in Sources */,
 				2C5E511124B3760400CBE858 /* AppDelegate.swift in Sources */,
 				2C5E512A24B37F1D00CBE858 /* MountainsController.swift in Sources */,
 			);
