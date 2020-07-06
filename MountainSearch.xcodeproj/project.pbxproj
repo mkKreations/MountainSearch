@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2C5E510D24B3760400CBE858 /* MountainSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MountainSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C5E510D24B3760400CBE858 /* Mountain Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mountain Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C5E511024B3760400CBE858 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C5E511424B3760400CBE858 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2C5E511724B3760400CBE858 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		2C5E510E24B3760400CBE858 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2C5E510D24B3760400CBE858 /* MountainSearch.app */,
+				2C5E510D24B3760400CBE858 /* Mountain Search.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,7 +81,7 @@
 			);
 			name = MountainSearch;
 			productName = MountainSearch;
-			productReference = 2C5E510D24B3760400CBE858 /* MountainSearch.app */;
+			productReference = 2C5E510D24B3760400CBE858 /* Mountain Search.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -289,7 +289,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mkKreations.MountainSearch;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Mountain Search";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -308,7 +308,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mkKreations.MountainSearch;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Mountain Search";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
