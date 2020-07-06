@@ -9,8 +9,16 @@
 import UIKit
 
 class MountainsViewController: UIViewController {
+	override func loadView() {
+		view = MountainsView()
+	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		view.backgroundColor = .purple
+		
+		guard let myView = view as? MountainsView else {
+			return
+		}
+		myView.collectionView.backgroundColor = .red
 	}
+	
 }
