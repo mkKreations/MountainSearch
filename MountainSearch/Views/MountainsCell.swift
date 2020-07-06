@@ -22,6 +22,9 @@ class MountainsCell: UICollectionViewCell {
 		
 		contentView.backgroundColor = UIColor.darkBackgroundColor
 		
+		contentView.layer.borderColor = UIColor.darkGray.cgColor
+		contentView.layer.borderWidth = 1.0
+		
 		displayLabel = UILabel(frame: .zero)
 		displayLabel.translatesAutoresizingMaskIntoConstraints = false
 		displayLabel.textColor = .white
