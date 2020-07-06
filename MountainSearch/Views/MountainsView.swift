@@ -9,7 +9,8 @@
 import UIKit
 
 class MountainsView: UIView {
-	let collectionView: UICollectionView = UICollectionView()
+	let collectionView: UICollectionView = UICollectionView(frame: .zero,
+																													collectionViewLayout: UICollectionViewFlowLayout())
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
