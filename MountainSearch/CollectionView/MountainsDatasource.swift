@@ -13,7 +13,7 @@ class MountainsDatasource: NSObject, UICollectionViewDataSource {
 	private var controller = MountainsController()
 	
 	override init() {
-		// reading from our raw data for first time
+		// reading from our raw data upon initialization
 		_ = controller.mountains
 	}
 	
