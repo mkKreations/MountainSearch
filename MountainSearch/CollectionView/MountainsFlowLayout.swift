@@ -12,7 +12,7 @@ class MountainsFlowLayout: UICollectionViewFlowLayout {
 	private let scrollDir: UICollectionView.ScrollDirection = .vertical
 	private let minLineSpacing: CGFloat = 8.0
 	private let minInterItemSpacing: CGFloat = 8.0
-	private let sectInsets: UIEdgeInsets = UIEdgeInsets(top: 15.0, left: 8.0, bottom: 0.0, right: 8.0)
+	private let sectInsets: UIEdgeInsets = UIEdgeInsets(top: 25.0, left: 8.0, bottom: 25.0, right: 8.0)
 	
 	override func prepare() {
 		// configuration
@@ -37,6 +37,6 @@ class MountainsFlowLayout: UICollectionViewFlowLayout {
 		let itemWidth = widthMinusInterItemSpacing / 2.0
 		
 		// dynamic width & static height
-		return CGSize(width: itemWidth, height: 44.0)
+		return CGSize(width: itemWidth, height: 40.0)
 	}
 }
