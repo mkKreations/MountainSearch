@@ -15,10 +15,10 @@ class MountainsViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		guard let myView = view as? MountainsView else {
-			return
-		}
-		myView.collectionView.backgroundColor = .red
+		guard let mountainsView = view as? MountainsView else { return }
+		
+		mountainsView.collectionView.backgroundColor = .red
+		mountainsView.collectionView.register(MountainsCell.self, forCellWithReuseIdentifier: MountainsCell.reuseIdentifier)
 	}
 	
 }

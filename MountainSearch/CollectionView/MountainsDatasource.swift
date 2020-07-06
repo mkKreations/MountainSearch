@@ -24,7 +24,7 @@ class MountainsDatasource: NSObject, UICollectionViewDataSource {
 		return controller.mountains.count
 	}
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath)
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MountainsCell.reuseIdentifier, for: indexPath) as! MountainsCell
 		return cell
 	}
 }
