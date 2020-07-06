@@ -9,6 +9,8 @@
 import UIKit
 
 class MountainsViewController: UIViewController {
+	private let dataSource = MountainsDatasource()
+	
 	override func loadView() {
 		view = MountainsView()
 	}
@@ -19,6 +21,7 @@ class MountainsViewController: UIViewController {
 		
 		mountainsView.collectionView.backgroundColor = .red
 		mountainsView.collectionView.register(MountainsCell.self, forCellWithReuseIdentifier: MountainsCell.reuseIdentifier)
+		mountainsView.collectionView.dataSource = dataSource
 	}
 	
 }
