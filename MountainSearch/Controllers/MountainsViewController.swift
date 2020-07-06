@@ -10,6 +10,7 @@ import UIKit
 
 class MountainsViewController: UIViewController {
 	private let dataSource = MountainsDatasource()
+	private let flowLayout = MountainsFlowLayout()
 	
 	override func loadView() {
 		view = MountainsView()
@@ -21,6 +22,7 @@ class MountainsViewController: UIViewController {
 		
 		mountainsView.collectionView.backgroundColor = .red
 		mountainsView.collectionView.register(MountainsCell.self, forCellWithReuseIdentifier: MountainsCell.reuseIdentifier)
+		mountainsView.collectionView.setCollectionViewLayout(flowLayout, animated: false) // no need to animate
 		mountainsView.collectionView.dataSource = dataSource
 	}
 	
