@@ -16,6 +16,14 @@ struct MountainsController {
 	// only generate mountains when we need them
 	lazy var mountains: [Mountain] = generateMountains()
 	
+	mutating func filteredMountains(forText text: String?) -> [Mountain] {
+		if text != nil && !text!.isEmpty {
+			// lowercase all text so we can filter appropriately
+			return mountains.filter { $0.name.lowercased().contains(text!.lowercased()) }
+		}
+		return mountains
+	}
+	
 	// no need to expose this logic
 	private func generateMountains() -> [Mountain] {
 		// parse thru Mountains by using newLine as separator

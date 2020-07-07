@@ -46,7 +46,10 @@ class MountainsViewController: UIViewController {
 // extension to manage any search bar related things
 extension MountainsViewController: UISearchResultsUpdating {
 	func updateSearchResults(for searchController: UISearchController) {
+		dataSource.filterText = searchController.searchBar.text
 		guard let text = searchController.searchBar.text else { return }
+		guard let mountainsView = view as? MountainsView else { return }
+		mountainsView.collectionView.reloadData()
 		print(text)
 	}
 }
