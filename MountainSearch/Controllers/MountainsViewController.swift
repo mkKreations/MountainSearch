@@ -20,6 +20,8 @@ class MountainsViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	
+		title = "Mountains Search"
+		
 		configureSearchController()
 		
 		guard let mountainsView = view as? MountainsView else { return }
