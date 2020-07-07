@@ -28,6 +28,6 @@ struct MountainsController {
 			let mountainAltitude = Int(mountainComponents[1])! // convert to Int
 			mountains.append(Mountain(name: mountainName, height: mountainAltitude))
 		}
-		return mountains
+		return mountains.sorted()
 	}
 }
