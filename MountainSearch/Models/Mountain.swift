@@ -14,3 +14,12 @@ struct Mountain {
 	let name: String
 	let height: Int
 }
+
+// keeping this extension here for simplicity
+
+extension Mountain: Comparable {
+	// so we can compare instances of Mountain
+	static func < (lhs: Mountain, rhs: Mountain) -> Bool {
+		lhs.name < rhs.name
+	}
+}
