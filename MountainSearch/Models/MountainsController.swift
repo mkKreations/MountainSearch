@@ -19,7 +19,7 @@ struct MountainsController {
 	mutating func filteredMountains(forText text: String?) -> [Mountain] {
 		if text != nil && !text!.isEmpty {
 			// lowercase all text so we can filter appropriately
-			return mountains.filter { $0.name.lowercased().contains(text!.lowercased()) }
+			return mountains.filter { $0.name.lowercased().hasPrefix(text!.lowercased()) }
 		}
 		return mountains
 	}
