@@ -13,27 +13,83 @@ import Foundation
 // our Mountain raw data
 
 struct MountainsController {
-	// only generate mountains when we need them
-	lazy var mountains: [Mountain] = generateMountains()
+	enum SearchPattern {
+		case none
+		case ascending
+		case descending
+	}
 	
-	mutating func filteredMountains(forText text: String?) -> (mountains: [Mountain], indexes: [Int]?) {
-		if text != nil && !text!.isEmpty {
-			// tmp variables for storage
-			var tmpMountains = [Mountain]()
-			var tmpIndexes = [Int]()
-			mountains.enumerated().forEach { (mountainIndex, mountain) in
-				// lowercase all text so we can filter appropriately
-				if mountain.name.lowercased().hasPrefix(text!.lowercased()) {
-					tmpMountains.append(mountain)
-				} else {
-					tmpIndexes.append(mountainIndex) // mountains to be deleted
-				}
+	private var searchPattern: SearchPattern = .none
+
+	// only generate mountains when we need them
+	// this will be our underlying data
+	private lazy var mountains: [Mountain] = generateMountains()
+	lazy var exposedMountains: [Mountain] = mountains // will originally set to our underlying data
+	
+	// keep track of filtered text
+	private var previousFilterText: String = ""
+	var filterText: String = "" {
+		didSet {
+			if filterText.count > previousFilterText.count {
+				searchPattern = .ascending
+			} else if previousFilterText.count > filterText.count {
+				searchPattern = .descending
+			} else {
+				searchPattern = .none
 			}
-			return (mountains: tmpMountains, indexes: tmpIndexes)
+			// I believe this is where I want to filter exposed data
+//			exposedMountains = filteredMountains(forText: filterText).mountains
 		}
+	}
 		
-		// just return our generated mountains with no indexes
-		return (mountains: mountains, indexes: nil)
+	mutating func filteredMountains(forText text: String) -> (indexes: [Int]?, searchPatternState: SearchPattern) {
+		switch searchPattern {
+		case .ascending:
+			let currentMountains = mountains.filter { $0.name.hasPrefix(filterText) }
+			let previousMountains = mountains.filter { $0.name.hasPrefix(previousFilterText) }
+			var tmpIndexes = [Int]()
+			print("all the way up!")
+			print("Current: \(currentMountains)")
+			print("Previous: \(previousMountains)")
+			if currentMountains == previousMountains {
+				print("NO CHANGE IN INDEXPATHS")
+			} else {
+				// get indexes of items to delete
+				for (index, mountain) in previousMountains.enumerated() {
+					if currentMountains.contains(mountain) { continue }
+					tmpIndexes.append(index)
+				}
+			print("Indexes to delete: \(tmpIndexes)")
+			}
+			previousFilterText = filterText
+			exposedMountains = currentMountains
+			return (indexes: tmpIndexes, searchPatternState: searchPattern)
+		case .descending:
+			let currentMountains = mountains.filter { $0.name.hasPrefix(filterText) }
+			let previousMountains = mountains.filter { $0.name.hasPrefix(previousFilterText) }
+			var tmpIndexes = [Int]()
+			print("all the way down!")
+			print("Current: \(currentMountains)")
+			print("Previous: \(previousMountains)")
+			if currentMountains == previousMountains {
+				print("NO CHANGE IN INDEXPATHS")
+			} else {
+				// get indexes of items to add
+				for (index, mountain) in currentMountains.enumerated() {
+					if previousMountains.contains(mountain) { continue }
+					tmpIndexes.append(index)
+				}
+				print("Indexes to add: \(tmpIndexes)")
+			}
+			previousFilterText = filterText
+			exposedMountains = currentMountains
+			return (indexes: tmpIndexes, searchPatternState: searchPattern)
+		case .none:
+			// nothing to do in this case
+			print("no change my good fellow")
+			exposedMountains = mountains // reset to underlying data
+			return (indexes: nil, searchPatternState: searchPattern)
+		}
 	}
 	
 	// no need to expose this logic
