@@ -37,8 +37,6 @@ struct MountainsController {
 			} else {
 				searchPattern = .none
 			}
-			// I believe this is where I want to filter exposed data
-//			exposedMountains = filteredMountains(forText: filterText).mountains
 		}
 	}
 		

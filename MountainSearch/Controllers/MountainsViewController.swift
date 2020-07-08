@@ -50,11 +50,20 @@ extension MountainsViewController: UISearchResultsUpdating {
 		guard let text = searchController.searchBar.text else { return }
 		guard let mountainsView = view as? MountainsView else { return }
 
-		if let _ = dataSource.filterMountains(forText: text) {
-//			mountainsView.collectionView.deleteItems(at: indexes)
+		// inform our dataSource so it can keep data in sync
+		let result = dataSource.filterMountains(forText: text)
+		
+		// make changes to collectionView based on searchPatternState
+		switch result.searchPatternState {
+		case .ascending:
+			// we know we have indexPaths here
+			mountainsView.collectionView.deleteItems(at: result.indexPaths!)
+		case .descending:
+			// we know we have indexPaths here
+			mountainsView.collectionView.insertItems(at: result.indexPaths!)
+		case .none:
+			// we know we have NO indexPaths here
+			print("Just strollin' by")
 		}
-
-		mountainsView.collectionView.reloadData() // only reload when we know we have text
-		print(text)
 	}
 }

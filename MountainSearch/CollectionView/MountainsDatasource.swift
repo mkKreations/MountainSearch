@@ -19,13 +19,15 @@ class MountainsDatasource: NSObject, UICollectionViewDataSource {
 	
 	// we'll pass back the indexPaths of the Mountains that
 	// were filtered out so we can delete them
-	func filterMountains(forText text: String) -> [IndexPath]? {
+	func filterMountains(forText text: String) -> (indexPaths: [IndexPath]?, searchPatternState: MountainsController.SearchPattern) {
 		// make sure to set this property on our controller
 		controller.filterText = text
-		// get indexPaths from controller
-		_ = controller.filteredMountains(forText: text)
+		// get indexes from controller to make IndexPaths
+		let diffMountains = controller.filteredMountains(forText: text)
 		// compose indexPaths from filtered out indexes of Mountains - we only have 1 section
-		return nil
+		let indexPaths = diffMountains.indexes?.map { IndexPath(row: $0, section: 0) }
+		// send out to our viewController
+		return (indexPaths: indexPaths, searchPatternState: diffMountains.searchPatternState)
 	}
 	
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -33,11 +35,9 @@ class MountainsDatasource: NSObject, UICollectionViewDataSource {
 	}
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return controller.exposedMountains.count
-//		return controller.filteredMountains(forText: filterText).mountains.count
 	}
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MountainsCell.reuseIdentifier, for: indexPath) as! MountainsCell
-//		cell.displayText = controller.filteredMountains(forText: filterText).mountains[indexPath.row].name
 		cell.displayText = controller.exposedMountains[indexPath.row].name
 		return cell
 	}
