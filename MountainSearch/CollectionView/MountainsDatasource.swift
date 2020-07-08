@@ -14,7 +14,7 @@ class MountainsDatasource: NSObject, UICollectionViewDataSource {
 	
 	override init() {
 		// reading from our raw data upon initialization
-//		_ = controller.mountains
+		_ = controller.exposedMountains
 	}
 	
 	// we'll pass back the indexPaths of the Mountains that
@@ -24,7 +24,7 @@ class MountainsDatasource: NSObject, UICollectionViewDataSource {
 		controller.filterText = text
 		// get indexes from controller to make IndexPaths
 		let diffMountains = controller.filteredMountains(forText: text)
-		// compose indexPaths from filtered out indexes of Mountains - we only have 1 section
+		// create indexPaths from filtered Mountains - we only have 1 section
 		let indexPaths = diffMountains.indexes?.map { IndexPath(row: $0, section: 0) }
 		// send out to our viewController
 		return (indexPaths: indexPaths, searchPatternState: diffMountains.searchPatternState)
