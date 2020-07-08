@@ -56,11 +56,17 @@ extension MountainsViewController: UISearchResultsUpdating {
 		// make changes to collectionView based on searchPatternState
 		switch result.searchPatternState {
 		case .ascending:
-			// we know we have indexPaths here
-			mountainsView.collectionView.deleteItems(at: result.indexPaths!)
+			// we know we have indexPaths here but only
+			// manipulate if indexPaths are not empty
+			if !result.indexPaths!.isEmpty {
+				mountainsView.collectionView.deleteItems(at: result.indexPaths!)
+			}
 		case .descending:
-			// we know we have indexPaths here
-			mountainsView.collectionView.insertItems(at: result.indexPaths!)
+			// we know we have indexPaths here but only
+			// manipulate if indexPaths are not empty
+			if !result.indexPaths!.isEmpty {
+				mountainsView.collectionView.insertItems(at: result.indexPaths!)
+			}
 		case .none:
 			// we know we have NO indexPaths here
 			print("Just strollin' by")
