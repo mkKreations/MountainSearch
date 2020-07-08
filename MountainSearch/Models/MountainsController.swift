@@ -46,9 +46,24 @@ struct MountainsController {
 	mutating func filteredMountains(forText text: String) -> (indexes: [Int]?, searchPatternState: SearchPattern) {
 		switch searchPattern {
 		case .ascending:
-			let currentMountains = mountains.filter { $0.name.hasPrefix(filterText) }
-			let previousMountains = mountains.filter { $0.name.hasPrefix(previousFilterText) }
-			var tmpIndexes = [Int]()
+			return filterMountains(forState: searchPattern)
+		case .descending:
+			return filterMountains(forState: searchPattern)
+		case .none:
+			// nothing to do in this case for now but always great to identify this state
+			exposedMountains = mountains // reset to underlying data
+			return (indexes: nil, searchPatternState: searchPattern)
+		}
+	}
+	
+	private mutating func filterMountains(forState searchState: SearchPattern) -> (indexes: [Int], searchPatternState: SearchPattern) {
+		// common code
+		let currentMountains = mountains.filter { $0.name.hasPrefix(filterText) }
+		let previousMountains = mountains.filter { $0.name.hasPrefix(previousFilterText) }
+		var tmpIndexes = [Int]()
+		
+		switch searchState {
+		case .ascending:
 			// for efficiency, we're not always looking for indexPaths
 			if currentMountains != previousMountains {
 				// get indexes of items to delete
@@ -60,10 +75,8 @@ struct MountainsController {
 			previousFilterText = filterText // update previousFilterText
 			exposedMountains = currentMountains // update exposed data
 			return (indexes: tmpIndexes, searchPatternState: searchPattern)
+			
 		case .descending:
-			let currentMountains = mountains.filter { $0.name.hasPrefix(filterText) }
-			let previousMountains = mountains.filter { $0.name.hasPrefix(previousFilterText) }
-			var tmpIndexes = [Int]()
 			// for efficiency, we're not always looking for indexPaths
 			if currentMountains != previousMountains {
 				// get indexes of items to add
@@ -75,10 +88,12 @@ struct MountainsController {
 			previousFilterText = filterText // update previousFilterText
 			exposedMountains = currentMountains // update exposed data
 			return (indexes: tmpIndexes, searchPatternState: searchPattern)
-		case .none:
-			// nothing to do in this case
-			exposedMountains = mountains // reset to underlying data
-			return (indexes: nil, searchPatternState: searchPattern)
+			
+		default:
+			// this will not be called the way we're using it - this method
+			// is really only for .ascending & .descending states since they
+			// have a some code in common
+			return (indexes: tmpIndexes, searchPatternState: searchPattern)
 		}
 	}
 	
