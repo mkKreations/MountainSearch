@@ -47,12 +47,15 @@ class MountainsViewController: UIViewController {
 extension MountainsViewController: UISearchResultsUpdating {
 	func updateSearchResults(for searchController: UISearchController) {
 //		dataSource.filterText = searchController.searchBar.text
-		_ = dataSource.filterMountains(forText: searchController.searchBar.text)
 
 		// make sure we have text & our view
 		guard let text = searchController.searchBar.text else { return }
 		guard let mountainsView = view as? MountainsView else { return }
-		
+
+		if let indexes = dataSource.filterMountains(forText: searchController.searchBar.text) {
+//			mountainsView.collectionView.deleteItems(at: indexes)
+		}
+
 		mountainsView.collectionView.reloadData() // only reload when we know we have text
 		print(text)
 	}

@@ -24,8 +24,8 @@ class MountainsDatasource: NSObject, UICollectionViewDataSource {
 	func filterMountains(forText text: String?) -> [IndexPath]? {
 		filterText = text // set our internal property to update collectionView datasource methods correctly
 		
-		// compose indexPaths of deleted items
-		return nil
+		// compose indexPaths from filtered out indexes of Mountains - we only have 1 section
+		return controller.filteredMountains(forText: text).indexes?.map { IndexPath(row: $0, section: 0) }
 	}
 	
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
