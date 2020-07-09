@@ -36,6 +36,8 @@ class MountainsViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		edgesForExtendedLayout = []
+		
 		guard let myView = view as? MountainsView else { return }
 		
 		myView.collectionView.register(MountainsCell.self, forCellWithReuseIdentifier: MountainsCell.reuseIdentifier)
