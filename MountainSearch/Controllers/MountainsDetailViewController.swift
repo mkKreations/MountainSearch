@@ -19,6 +19,8 @@ class MountainsDetailViewController: UIViewController {
 		
 		title = mountain?.name
 		
+		edgesForExtendedLayout = []
+		
 		guard let detailView = view as? MountainsDetailView else { return }
 		
 		detailView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
