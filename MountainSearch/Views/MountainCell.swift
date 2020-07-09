@@ -11,6 +11,11 @@ import UIKit
 class MountainsCell: UICollectionViewCell {
 	static let reuseIdentifier: String = String(describing: self)
 	private var displayLabel: UILabel!
+	var displayText: String? {
+		didSet {
+			displayLabel.text = displayText
+		}
+	}
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
