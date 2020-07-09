@@ -17,6 +17,10 @@ class MountainsDatasource: NSObject, UICollectionViewDataSource {
 		_ = controller.exposedMountains
 	}
 	
+	func getMountain(atIndexPath indexPath: IndexPath) -> Mountain {
+		return controller.exposedMountains[indexPath.row]
+	}
+	
 	// we'll pass back the indexPaths of the Mountains that
 	// were filtered out so we can delete them
 	func filterMountains(forText text: String) -> (indexPaths: [IndexPath]?, searchPatternState: MountainsController.SearchPattern) {

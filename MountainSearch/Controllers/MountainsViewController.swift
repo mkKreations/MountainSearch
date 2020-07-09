@@ -11,6 +11,7 @@ import UIKit
 class MountainsViewController: UIViewController {
 	private let dataSource = MountainsDatasource()
 	private let flowLayout = MountainsFlowLayout()
+	private let collectionDelegate = MountainsCollectionViewDelegate()
 	private let searchController = UISearchController(searchResultsController: nil)
 	
 	override func loadView() {
@@ -30,6 +31,9 @@ class MountainsViewController: UIViewController {
 		mountainsView.collectionView.register(MountainsCell.self, forCellWithReuseIdentifier: MountainsCell.reuseIdentifier)
 		mountainsView.collectionView.setCollectionViewLayout(flowLayout, animated: false) // no need to animate
 		mountainsView.collectionView.dataSource = dataSource
+		mountainsView.collectionView.delegate = collectionDelegate
+		
+		collectionDelegate.delegate = self // conformance to receive collectionView delegate events
 	}
 	
 	private func configureSearchController() {
@@ -39,6 +43,16 @@ class MountainsViewController: UIViewController {
 		searchController.obscuresBackgroundDuringPresentation = false // allows user to scroll search results
 		navigationItem.searchController = searchController // set on navigationItem
 		navigationItem.hidesSearchBarWhenScrolling = false
+	}
+}
+
+// extension to manage collectionViewDelegate
+extension MountainsViewController: MountainsSelectionDelegate {
+	func didSelectMountain(atIndexPath indexPath: IndexPath) {
+		let detailVC = MountainsDetailViewController()
+		let selectedMountain = dataSource.getMountain(atIndexPath: indexPath)
+		detailVC.mountain = selectedMountain
+		navigationController?.pushViewController(detailVC, animated: true)
 	}
 }
 
