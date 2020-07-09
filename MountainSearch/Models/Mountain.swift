@@ -15,3 +15,10 @@ struct Mountain: Hashable {
 	let height: Int
 	let id = UUID() // hashable conformance
 }
+
+// so we can compare our Mountains
+extension Mountain: Comparable {
+	static func < (lhs: Mountain, rhs: Mountain) -> Bool {
+		return lhs.name < rhs.name
+	}
+}
