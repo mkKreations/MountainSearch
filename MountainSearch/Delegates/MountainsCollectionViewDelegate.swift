@@ -20,4 +20,12 @@ class MountainsCollectionViewDelegate: NSObject, UICollectionViewDelegate {
 		// pass along to delegate
 		delegate?.didSelectMountain(atIndexPath: indexPath)
 	}
+	
+	// set highlighted colors for cells
+	func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+		collectionView.cellForItem(at: indexPath)?.backgroundColor = .darkGray
+	}
+	func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+		collectionView.cellForItem(at: indexPath)?.backgroundColor = .darkBackgroundColor
+	}
 }

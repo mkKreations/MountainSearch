@@ -23,7 +23,6 @@ class MountainsViewController: UIViewController {
 	
 		title = "Mountains Search"
 		
-		
 		configureSearchController()
 		
 		guard let mountainsView = view as? MountainsView else { return }
