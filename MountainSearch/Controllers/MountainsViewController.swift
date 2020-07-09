@@ -43,10 +43,18 @@ class MountainsViewController: UIViewController {
 		myView.collectionView.setCollectionViewLayout(configureCompositionalLayout(), animated: false)
 		
 		configureDatasource(inMountainsView: myView) // configure datasource
+		
+		snapshotMountains() // initial snapshot
 	}
 	
 	
 	// MARK: collectionView stuff
+	private func snapshotMountains() {
+		var snapshot = NSDiffableDataSourceSnapshot<Section, Mountain>()
+		snapshot.appendSections([.main])
+		snapshot.appendItems(controller.mountains, toSection: .main)
+		dataSource.apply(snapshot)
+	}
 	private func configureDatasource(inMountainsView mountainsView: MountainsView) {
 		dataSource = UICollectionViewDiffableDataSource(collectionView: mountainsView.collectionView,
 																										cellProvider: { (collectionView, indexPath, mountain) -> UICollectionViewCell? in
