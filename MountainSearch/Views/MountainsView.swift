@@ -16,6 +16,7 @@ class MountainsView: UIView {
 		super.init(frame: frame)
 		
 		collectionView.translatesAutoresizingMaskIntoConstraints = false
+		collectionView.backgroundColor = .darkBackgroundColor
 		addSubview(collectionView)
 		
 		collectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true

@@ -20,6 +20,8 @@ class MountainsCell: UICollectionViewCell {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		
+		contentView.backgroundColor = .darkBackgroundColor
+		
 		displayLabel = UILabel(frame: .zero)
 		displayLabel.translatesAutoresizingMaskIntoConstraints = false
 		contentView.addSubview(displayLabel)
