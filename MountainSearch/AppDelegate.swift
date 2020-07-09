@@ -13,8 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//		let rootVC = MountainsViewController()
-		let rootVC = MountainsDetailViewController()
+		let rootVC = MountainsViewController()
 		let navVC = UINavigationController(rootViewController: rootVC)
 		window?.rootViewController = navVC
 		window?.makeKeyAndVisible()
