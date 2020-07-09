@@ -33,6 +33,7 @@ class MountainsViewController: UIViewController {
 		guard let myView = view as? MountainsView else { return }
 		
 		myView.collectionView.backgroundColor = .red
+		myView.collectionView.register(MountainsCell.self, forCellWithReuseIdentifier: MountainsCell.reuseIdentifier)
 		myView.collectionView.setCollectionViewLayout(configureCompositionalLayout(), animated: false)
 	}
 	
