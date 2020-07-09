@@ -9,8 +9,10 @@
 import UIKit
 
 class MountainsDetailViewController: UIViewController {
+	override func loadView() {
+		view = MountainsDetailView()
+	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		view.backgroundColor = .red
 	}
 }
