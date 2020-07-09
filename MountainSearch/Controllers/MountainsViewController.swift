@@ -36,9 +36,7 @@ class MountainsViewController: UIViewController {
 		searchController.searchResultsUpdater = self // receive updates from search bar while typing
 		searchController.searchBar.placeholder = "Search for mountain"
 		searchController.searchBar.sizeToFit() // layout properly in navigationItem
-		// https://stackoverflow.com/questions/30685379/swift-getting-snapshotting-a-view-that-has-not-been-rendered-error-when-try
-		searchController.searchBar.layoutIfNeeded() // refer to above link for this line
-		searchController.obscuresBackgroundDuringPresentation = false
+		searchController.obscuresBackgroundDuringPresentation = false // allows user to scroll search results
 		navigationItem.searchController = searchController // set on navigationItem
 		navigationItem.hidesSearchBarWhenScrolling = false
 	}
