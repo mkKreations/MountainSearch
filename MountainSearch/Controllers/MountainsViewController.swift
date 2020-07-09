@@ -9,8 +9,14 @@
 import UIKit
 
 class MountainsViewController: UIViewController {
+	// this nested enum will represent our sections within collectionView
+	enum Section {
+		case main
+	}
+	
 	// MARK: dependencies
 	var controller: MountainsController = MountainsController()
+//	var dataSource: UICollectionViewDiffableDataSource!
 
 	
 	// MARK: initializers
@@ -39,6 +45,9 @@ class MountainsViewController: UIViewController {
 	
 	
 	// MARK: collectionView stuff
+	private func configureDatasource() {
+		
+	}
 	private func configureCompositionalLayout() -> UICollectionViewCompositionalLayout {
 		let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
 																					heightDimension: .fractionalHeight(1.0))
