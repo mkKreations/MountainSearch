@@ -10,7 +10,8 @@ import Foundation
 
 // our model object to represent a Mountain
 
-struct Mountain {
+struct Mountain: Hashable {
 	let name: String
 	let height: Int
+	let id = UUID() // hashable conformance
 }
