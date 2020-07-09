@@ -33,5 +33,22 @@ class MountainsViewController: UIViewController {
 		guard let myView = view as? MountainsView else { return }
 		
 		myView.collectionView.backgroundColor = .red
+		myView.collectionView.setCollectionViewLayout(configureCompositionalLayout(), animated: false)
+	}
+	
+	
+	// MARK: collectionView stuff
+	private func configureCompositionalLayout() -> UICollectionViewCompositionalLayout {
+		let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
+																					heightDimension: .fractionalHeight(1.0))
+		let item = NSCollectionLayoutItem(layoutSize: itemSize)
+		
+		let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+																					 heightDimension: .absolute(40.0))
+		let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+		
+		let section = NSCollectionLayoutSection(group: group)
+		
+		return UICollectionViewCompositionalLayout(section: section)
 	}
 }
