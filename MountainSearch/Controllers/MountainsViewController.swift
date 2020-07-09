@@ -16,7 +16,7 @@ class MountainsViewController: UIViewController {
 	
 	// MARK: dependencies
 	var controller: MountainsController = MountainsController()
-//	var dataSource: UICollectionViewDiffableDataSource!
+	var dataSource: UICollectionViewDiffableDataSource<Section, Mountain>!
 
 	
 	// MARK: initializers
@@ -41,12 +41,20 @@ class MountainsViewController: UIViewController {
 		myView.collectionView.backgroundColor = .red
 		myView.collectionView.register(MountainsCell.self, forCellWithReuseIdentifier: MountainsCell.reuseIdentifier)
 		myView.collectionView.setCollectionViewLayout(configureCompositionalLayout(), animated: false)
+		
+		configureDatasource(inMountainsView: myView) // configure datasource
 	}
 	
 	
 	// MARK: collectionView stuff
-	private func configureDatasource() {
-		
+	private func configureDatasource(inMountainsView mountainsView: MountainsView) {
+		dataSource = UICollectionViewDiffableDataSource(collectionView: mountainsView.collectionView,
+																										cellProvider: { (collectionView, indexPath, mountain) -> UICollectionViewCell? in
+			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MountainsCell.reuseIdentifier,
+																													for: indexPath) as? MountainsCell else { return nil }
+			cell.displayText = mountain.name
+			return cell
+		})
 	}
 	private func configureCompositionalLayout() -> UICollectionViewCompositionalLayout {
 		let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
