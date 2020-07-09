@@ -24,6 +24,7 @@ class MountainsDetailViewController: UIViewController {
 		guard let detailView = view as? MountainsDetailView else { return }
 		
 		detailView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
+		detailView.tableView.dataSource = self
 	}
 }
 
@@ -34,13 +35,19 @@ extension MountainsDetailViewController: UITableViewDataSource {
 		return 1
 	}
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 2
+		return 1
 	}
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell.self), for: indexPath)
+		var cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell.self), for: indexPath)
+		if cell.detailTextLabel == nil {
+			// we want the default UITableViewCell with subtitle
+			cell = UITableViewCell(style: .subtitle, reuseIdentifier: String(describing: UITableViewCell.self))
+		}
+		
 		guard let mount = mountain else { return cell }
 		cell.textLabel?.text = mount.name
-		cell.detailTextLabel?.text = "Altitude: \(mount.height)"
+		cell.detailTextLabel?.text = "Altitude: \(mount.height) meters"
+		cell.detailTextLabel?.textColor = .lightGray
 		return cell
 	}
 }

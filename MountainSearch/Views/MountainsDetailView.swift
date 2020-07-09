@@ -15,6 +15,8 @@ class MountainsDetailView: UIView {
 		super.init(frame: frame)
 		
 		tableView.translatesAutoresizingMaskIntoConstraints = false
+		tableView.layer.borderColor = UIColor.red.cgColor
+		tableView.layer.borderWidth = 1.0
 		addSubview(tableView)
 		
 		layoutTableView()
