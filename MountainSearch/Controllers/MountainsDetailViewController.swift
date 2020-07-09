@@ -42,6 +42,7 @@ extension MountainsDetailViewController: UITableViewDataSource {
 		if cell.detailTextLabel == nil {
 			// we want the default UITableViewCell with subtitle
 			cell = UITableViewCell(style: .subtitle, reuseIdentifier: String(describing: UITableViewCell.self))
+			cell.selectionStyle = .none
 		}
 		
 		guard let mount = mountain else { return cell }
