@@ -38,6 +38,8 @@ class MountainsViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		title = "Mountains Search"
+		
 		edgesForExtendedLayout = []
 		
 		configureSearchBar()
