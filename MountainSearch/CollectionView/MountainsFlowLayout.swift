@@ -26,8 +26,11 @@ class MountainsFlowLayout: UICollectionViewFlowLayout {
 	}
 	
 	private func calculateItemSize() -> CGSize {
+		// return default height if we don't have a collectionView
+		guard let cv = collectionView else { return CGSize(width: itemHeight, height: itemHeight) }
+
 		// get full width
-		let collectionViewWidth = UIScreen.main.bounds.size.width
+		let collectionViewWidth = cv.frame.size.width
 
 		// subtract left & right margins
 		let fullWidthMinusHorizontalMargins = collectionViewWidth - (sectInsets.left + sectInsets.right)
