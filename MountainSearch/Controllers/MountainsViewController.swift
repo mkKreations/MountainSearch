@@ -21,6 +21,7 @@ class MountainsViewController: UIViewController {
 	private var dataSource: UICollectionViewDiffableDataSource<Section, Mountain>!
 	private var collectionView: UICollectionView!
 	private let collectionViewDelegate = MountainsCollectionViewDelegate()
+	private var currentSearchTerm: String? // always keep track of searchTerm
 
 	
 	// MARK: initializers
@@ -124,7 +125,8 @@ class MountainsViewController: UIViewController {
 // MARK: collectionView delegate logic
 extension MountainsViewController: MountainsSelectionDelegate {
 	func didSelectMountain(atIndexPath indexPath: IndexPath) {
-		print(indexPath)
+		let selectedMountain = controller.filteredMountains(forSearchTerm: currentSearchTerm)[indexPath.row]
+		print(selectedMountain.name)
 	}
 }
 
@@ -134,6 +136,7 @@ extension MountainsViewController: UISearchBarDelegate {
 	// tracking as user searches
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 		print(searchText)
+		currentSearchTerm = searchText
 		snapshotMountains(forSearchTerm: searchText)
 	}
 
