@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C239A0524B7D9D6006E3FEF /* MountainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C239A0424B7D9D6006E3FEF /* MountainCell.swift */; };
+		2C239A0824B7E068006E3FEF /* UIColor+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C239A0724B7E068006E3FEF /* UIColor+extensions.swift */; };
 		2C5E511124B3760400CBE858 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5E511024B3760400CBE858 /* AppDelegate.swift */; };
 		2C5E511824B3760400CBE858 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C5E511624B3760400CBE858 /* Main.storyboard */; };
 		2C5E511A24B3760700CBE858 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C5E511924B3760700CBE858 /* Assets.xcassets */; };
@@ -15,10 +17,11 @@
 		2C5E512824B37E7D00CBE858 /* Mountain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5E512724B37E7D00CBE858 /* Mountain.swift */; };
 		2C5E512A24B37F1D00CBE858 /* MountainsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5E512924B37F1D00CBE858 /* MountainsController.swift */; };
 		2C70D22B24B3D892009B6744 /* MountainsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C70D22A24B3D892009B6744 /* MountainsViewController.swift */; };
-		2C70D22D24B3D96E009B6744 /* MountainsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C70D22C24B3D96E009B6744 /* MountainsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C239A0424B7D9D6006E3FEF /* MountainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainCell.swift; sourceTree = "<group>"; };
+		2C239A0724B7E068006E3FEF /* UIColor+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extensions.swift"; sourceTree = "<group>"; };
 		2C5E510D24B3760400CBE858 /* Mountain Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mountain Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C5E511024B3760400CBE858 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C5E511724B3760400CBE858 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -29,7 +32,6 @@
 		2C5E512724B37E7D00CBE858 /* Mountain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mountain.swift; sourceTree = "<group>"; };
 		2C5E512924B37F1D00CBE858 /* MountainsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsController.swift; sourceTree = "<group>"; };
 		2C70D22A24B3D892009B6744 /* MountainsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsViewController.swift; sourceTree = "<group>"; };
-		2C70D22C24B3D96E009B6744 /* MountainsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C239A0624B7E044006E3FEF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2C239A0724B7E068006E3FEF /* UIColor+extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		2C5E510424B3760400CBE858 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +72,7 @@
 		2C5E510F24B3760400CBE858 /* MountainSearch */ = {
 			isa = PBXGroup;
 			children = (
+				2C239A0624B7E044006E3FEF /* Extensions */,
 				2C70D22924B3D881009B6744 /* Controllers */,
 				2C70D22824B3D863009B6744 /* Views */,
 				2C5E512424B37C7000CBE858 /* Models */,
@@ -87,7 +98,7 @@
 		2C70D22824B3D863009B6744 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2C70D22C24B3D96E009B6744 /* MountainsView.swift */,
+				2C239A0424B7D9D6006E3FEF /* MountainCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,9 +185,10 @@
 				2C5E512824B37E7D00CBE858 /* Mountain.swift in Sources */,
 				2C5E512624B37C8E00CBE858 /* MountainsRawData.swift in Sources */,
 				2C70D22B24B3D892009B6744 /* MountainsViewController.swift in Sources */,
+				2C239A0824B7E068006E3FEF /* UIColor+extensions.swift in Sources */,
 				2C5E511124B3760400CBE858 /* AppDelegate.swift in Sources */,
+				2C239A0524B7D9D6006E3FEF /* MountainCell.swift in Sources */,
 				2C5E512A24B37F1D00CBE858 /* MountainsController.swift in Sources */,
-				2C70D22D24B3D96E009B6744 /* MountainsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +264,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -306,7 +318,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -323,7 +335,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7TX7D7Z677;
 				INFOPLIST_FILE = MountainSearch/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -342,7 +354,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7TX7D7Z677;
 				INFOPLIST_FILE = MountainSearch/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
