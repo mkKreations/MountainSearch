@@ -115,9 +115,16 @@ class MountainsViewController: UIViewController {
 	}
 }
 
+
+// MARK: search bar delegate logic
 extension MountainsViewController: UISearchBarDelegate {
+	// tracking as user searches
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 		print(searchText)
 		snapshotMountains(forSearchTerm: searchText)
+	}
+	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+		// when user clicks search - dismiss keyboard
+		view.endEditing(true)
 	}
 }
