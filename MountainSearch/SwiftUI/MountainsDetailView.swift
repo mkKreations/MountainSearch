@@ -12,7 +12,10 @@ struct MountainsDetailView: View {
 	var mountain: Mountain
 	
 	var body: some View {
-		Text("MountainsDetailView")
+		VStack {
+			Text(mountain.name)
+			Text("\(mountain.height)")
+		}
 	}
 }
 

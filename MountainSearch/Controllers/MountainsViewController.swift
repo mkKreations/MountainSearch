@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class MountainsViewController: UIViewController {
 	// this nested enum will represent our sections within collectionView
@@ -127,8 +128,12 @@ class MountainsViewController: UIViewController {
 // MARK: collectionView delegate logic
 extension MountainsViewController: MountainsSelectionDelegate {
 	func didSelectMountain(atIndexPath indexPath: IndexPath) {
+		// get our selected Mountain
 		let selectedMountain = controller.filteredMountains(forSearchTerm: currentSearchTerm)[indexPath.row]
 		print(selectedMountain.name)
+		// pass in Mountain as dependency to our SwiftUI view nested within UIHostingController
+		let detailVC = UIHostingController(rootView: MountainsDetailView(mountain: selectedMountain))
+		navigationController?.pushViewController(detailVC, animated: true) // pushhhh
 	}
 }
 
