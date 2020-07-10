@@ -14,9 +14,10 @@ class MountainsViewController: UIViewController {
 		case main
 	}
 	
-	// MARK: dependencies
-	var controller: MountainsController = MountainsController()
-	var dataSource: UICollectionViewDiffableDataSource<Section, Mountain>!
+	// MARK: internal properties
+	private var controller: MountainsController = MountainsController()
+	private var dataSource: UICollectionViewDiffableDataSource<Section, Mountain>!
+	private var collectionView: UICollectionView!
 
 	
 	// MARK: initializers
@@ -30,35 +31,46 @@ class MountainsViewController: UIViewController {
 	
 	
 	// MARK: view lifecycle methods
-	override func loadView() {
-		view = MountainsView()
-	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		edgesForExtendedLayout = []
 		
-		guard let myView = view as? MountainsView else { return }
-		
-		myView.collectionView.register(MountainsCell.self, forCellWithReuseIdentifier: MountainsCell.reuseIdentifier)
-		myView.collectionView.setCollectionViewLayout(configureCompositionalLayout(), animated: false)
-		
-		configureDatasource(inMountainsView: myView) // configure datasource
-		
+		configureCollectionView()
+		configureDatasource() // configure datasource
 		snapshotMountains() // initial snapshot
+//		collectionView.layer.borderColor = UIColor.red.cgColor
+//		collectionView.layer.borderWidth = 1.0
 	}
 	
 	
-	// MARK: collectionView stuff
+	// MARK: collectionView configuration
+	private func configureCollectionView() {
+		collectionView = UICollectionView(frame: .zero, collectionViewLayout: configureCompositionalLayout())
+		collectionView.translatesAutoresizingMaskIntoConstraints = false
+		collectionView.backgroundColor = .darkBackgroundColor
+		collectionView.register(MountainsCell.self, forCellWithReuseIdentifier: MountainsCell.reuseIdentifier)
+		view.addSubview(collectionView)
+		
+		layoutCollectionView()
+	}
+	private func layoutCollectionView() {
+		collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+		collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+		collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+		collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+	}
+	
+	// MARK: collectionView internal stuff
 	private func snapshotMountains() {
 		var snapshot = NSDiffableDataSourceSnapshot<Section, Mountain>()
 		snapshot.appendSections([.main])
 		snapshot.appendItems(controller.mountains, toSection: .main)
 		dataSource.apply(snapshot)
 	}
-	private func configureDatasource(inMountainsView mountainsView: MountainsView) {
-		dataSource = UICollectionViewDiffableDataSource(collectionView: mountainsView.collectionView,
-																										cellProvider: { (collectionView, indexPath, mountain) -> UICollectionViewCell? in
+	private func configureDatasource() {
+		dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView,
+																											cellProvider: { (collectionView, indexPath, mountain) -> UICollectionViewCell? in
 			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MountainsCell.reuseIdentifier,
 																													for: indexPath) as? MountainsCell else { return nil }
 			cell.displayText = mountain.name
