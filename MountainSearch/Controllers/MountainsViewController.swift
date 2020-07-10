@@ -62,6 +62,7 @@ class MountainsViewController: UIViewController {
 		searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
 	}
 	
+	
 	// MARK: collectionView configuration
 	private func configureCollectionView() {
 		collectionView = UICollectionView(frame: .zero, collectionViewLayout: configureCompositionalLayout())
@@ -143,5 +144,4 @@ extension MountainsViewController: UISearchBarDelegate {
 		searchBar.setShowsCancelButton(false, animated: true)
 		return true
 	}
-	
 }
