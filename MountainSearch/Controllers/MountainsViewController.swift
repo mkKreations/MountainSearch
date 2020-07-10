@@ -20,6 +20,7 @@ class MountainsViewController: UIViewController {
 	private var controller: MountainsController = MountainsController()
 	private var dataSource: UICollectionViewDiffableDataSource<Section, Mountain>!
 	private var collectionView: UICollectionView!
+	private let collectionViewDelegate = MountainsCollectionViewDelegate()
 
 	
 	// MARK: initializers
@@ -42,6 +43,8 @@ class MountainsViewController: UIViewController {
 		configureCollectionView()
 		configureDatasource() // configure datasource
 		snapshotMountains(forSearchTerm: nil) // initial snapshot
+		
+		collectionViewDelegate.delegate = self
 	}
 	
 	
@@ -69,6 +72,7 @@ class MountainsViewController: UIViewController {
 		collectionView.translatesAutoresizingMaskIntoConstraints = false
 		collectionView.backgroundColor = .darkBackgroundColor
 		collectionView.register(MountainsCell.self, forCellWithReuseIdentifier: MountainsCell.reuseIdentifier)
+		collectionView.delegate = collectionViewDelegate
 		view.addSubview(collectionView)
 		
 		layoutCollectionView()
@@ -113,6 +117,14 @@ class MountainsViewController: UIViewController {
 		section.contentInsets = NSDirectionalEdgeInsets(top: 25.0, leading: 8.0, bottom: 25.0, trailing: 8.0)
 		
 		return UICollectionViewCompositionalLayout(section: section)
+	}
+}
+
+
+// MARK: collectionView delegate logic
+extension MountainsViewController: MountainsSelectionDelegate {
+	func didSelectMountain(atIndexPath indexPath: IndexPath) {
+		print(indexPath)
 	}
 }
 
