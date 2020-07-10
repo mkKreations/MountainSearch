@@ -14,6 +14,7 @@ class MountainsViewController: UIViewController {
 		case main
 	}
 	
+	
 	// MARK: internal properties
 	private var controller: MountainsController = MountainsController()
 	private var dataSource: UICollectionViewDiffableDataSource<Section, Mountain>!
@@ -58,6 +59,7 @@ class MountainsViewController: UIViewController {
 		collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
 		collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
 	}
+	
 	
 	// MARK: collectionView internal stuff
 	private func snapshotMountains() {
