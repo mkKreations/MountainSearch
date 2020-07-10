@@ -16,6 +16,12 @@ struct MountainsController {
 	// only generate mountains when we need them
 	lazy var mountains: [Mountain] = generateMountains()
 	
+	mutating func filteredMountains(forSearchTerm searchTerm: String?) -> [Mountain] {
+		// only filter if there's an actual search term - otherwise return full collection
+		if searchTerm != nil && !searchTerm!.isEmpty { return mountains.filter { $0.name.hasPrefix(searchTerm!) } }
+		return mountains
+	}
+	
 	// no need to expose this logic
 	private func generateMountains() -> [Mountain] {
 		// parse thru Mountains by using newLine as separator

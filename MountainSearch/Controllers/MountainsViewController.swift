@@ -41,7 +41,7 @@ class MountainsViewController: UIViewController {
 		configureSearchBar()
 		configureCollectionView()
 		configureDatasource() // configure datasource
-		snapshotMountains() // initial snapshot
+		snapshotMountains(forSearchTerm: nil) // initial snapshot
 	}
 	
 	
@@ -81,10 +81,11 @@ class MountainsViewController: UIViewController {
 	
 	
 	// MARK: collectionView internal stuff
-	private func snapshotMountains() {
+	private func snapshotMountains(forSearchTerm searchTerm: String?) {
 		var snapshot = NSDiffableDataSourceSnapshot<Section, Mountain>()
 		snapshot.appendSections([.main])
-		snapshot.appendItems(controller.mountains, toSection: .main)
+		snapshot.appendItems(controller.filteredMountains(forSearchTerm: searchTerm),
+												 toSection: .main)
 		dataSource.apply(snapshot)
 	}
 	private func configureDatasource() {
@@ -117,5 +118,6 @@ class MountainsViewController: UIViewController {
 extension MountainsViewController: UISearchBarDelegate {
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 		print(searchText)
+		snapshotMountains(forSearchTerm: searchText)
 	}
 }
