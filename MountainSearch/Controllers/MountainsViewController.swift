@@ -16,6 +16,7 @@ class MountainsViewController: UIViewController {
 	
 	
 	// MARK: internal properties
+	private var searchBar: UISearchBar!
 	private var controller: MountainsController = MountainsController()
 	private var dataSource: UICollectionViewDiffableDataSource<Section, Mountain>!
 	private var collectionView: UICollectionView!
@@ -37,9 +38,28 @@ class MountainsViewController: UIViewController {
 		
 		edgesForExtendedLayout = []
 		
+		configureSearchBar()
 		configureCollectionView()
 		configureDatasource() // configure datasource
-		snapshotMountains() // initial snapshot
+		snapshotMountains(forSearchTerm: nil) // initial snapshot
+	}
+	
+	
+	// MARK: search bar configuration
+	private func configureSearchBar() {
+		searchBar = UISearchBar(frame: .zero)
+		searchBar.translatesAutoresizingMaskIntoConstraints = false
+		searchBar.searchTextField.backgroundColor = .black
+		searchBar.barTintColor = .lightGray
+		searchBar.delegate = self
+		view.addSubview(searchBar)
+		
+		layoutSearchBar()
+	}
+	private func layoutSearchBar() {
+		searchBar.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+		searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+		searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
 	}
 	
 	
@@ -54,7 +74,7 @@ class MountainsViewController: UIViewController {
 		layoutCollectionView()
 	}
 	private func layoutCollectionView() {
-		collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+		collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor).isActive = true
 		collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 		collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
 		collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
@@ -62,10 +82,11 @@ class MountainsViewController: UIViewController {
 	
 	
 	// MARK: collectionView internal stuff
-	private func snapshotMountains() {
+	private func snapshotMountains(forSearchTerm searchTerm: String?) {
 		var snapshot = NSDiffableDataSourceSnapshot<Section, Mountain>()
 		snapshot.appendSections([.main])
-		snapshot.appendItems(controller.mountains, toSection: .main)
+		snapshot.appendItems(controller.filteredMountains(forSearchTerm: searchTerm),
+												 toSection: .main)
 		dataSource.apply(snapshot)
 	}
 	private func configureDatasource() {
@@ -92,5 +113,35 @@ class MountainsViewController: UIViewController {
 		section.contentInsets = NSDirectionalEdgeInsets(top: 25.0, leading: 8.0, bottom: 25.0, trailing: 8.0)
 		
 		return UICollectionViewCompositionalLayout(section: section)
+	}
+}
+
+
+// MARK: search bar delegate logic
+extension MountainsViewController: UISearchBarDelegate {
+	// tracking as user searches
+	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+		print(searchText)
+		snapshotMountains(forSearchTerm: searchText)
+	}
+
+	// when user clicks search - dismiss keyboard
+	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+		view.endEditing(true)
+	}
+	
+	// when user clicks cancel - dismiss keyboard
+	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+		view.endEditing(true)
+	}
+
+	// manage the showing/hiding of the cancel button with animation
+	func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+		searchBar.setShowsCancelButton(true, animated: true)
+		return true
+	}
+	func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+		searchBar.setShowsCancelButton(false, animated: true)
+		return true
 	}
 }
