@@ -39,8 +39,6 @@ class MountainsViewController: UIViewController {
 		configureCollectionView()
 		configureDatasource() // configure datasource
 		snapshotMountains() // initial snapshot
-//		collectionView.layer.borderColor = UIColor.red.cgColor
-//		collectionView.layer.borderWidth = 1.0
 	}
 	
 	
