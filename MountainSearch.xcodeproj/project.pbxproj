@@ -18,6 +18,7 @@
 		2C5E512824B37E7D00CBE858 /* Mountain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5E512724B37E7D00CBE858 /* Mountain.swift */; };
 		2C5E512A24B37F1D00CBE858 /* MountainsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5E512924B37F1D00CBE858 /* MountainsController.swift */; };
 		2C70D22B24B3D892009B6744 /* MountainsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C70D22A24B3D892009B6744 /* MountainsViewController.swift */; };
+		2CE4CDA924B924B40010964C /* MountainsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4CDA824B924B40010964C /* MountainsDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		2C5E512724B37E7D00CBE858 /* Mountain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mountain.swift; sourceTree = "<group>"; };
 		2C5E512924B37F1D00CBE858 /* MountainsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsController.swift; sourceTree = "<group>"; };
 		2C70D22A24B3D892009B6744 /* MountainsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsViewController.swift; sourceTree = "<group>"; };
+		2CE4CDA824B924B40010964C /* MountainsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 		2C5E510F24B3760400CBE858 /* MountainSearch */ = {
 			isa = PBXGroup;
 			children = (
+				2CE4CDA724B924A50010964C /* SwiftUI */,
 				2C43B82524B91DA400912A35 /* Delegates */,
 				2C239A0624B7E044006E3FEF /* Extensions */,
 				2C70D22924B3D881009B6744 /* Controllers */,
@@ -120,6 +123,14 @@
 				2C70D22A24B3D892009B6744 /* MountainsViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2CE4CDA724B924A50010964C /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				2CE4CDA824B924B40010964C /* MountainsDetailView.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +209,7 @@
 				2C5E512624B37C8E00CBE858 /* MountainsRawData.swift in Sources */,
 				2C70D22B24B3D892009B6744 /* MountainsViewController.swift in Sources */,
 				2C239A0824B7E068006E3FEF /* UIColor+extensions.swift in Sources */,
+				2CE4CDA924B924B40010964C /* MountainsDetailView.swift in Sources */,
 				2C5E511124B3760400CBE858 /* AppDelegate.swift in Sources */,
 				2C239A0524B7D9D6006E3FEF /* MountainCell.swift in Sources */,
 				2C5E512A24B37F1D00CBE858 /* MountainsController.swift in Sources */,
