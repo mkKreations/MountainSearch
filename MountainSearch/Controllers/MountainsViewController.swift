@@ -123,8 +123,25 @@ extension MountainsViewController: UISearchBarDelegate {
 		print(searchText)
 		snapshotMountains(forSearchTerm: searchText)
 	}
+
+	// when user clicks search - dismiss keyboard
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-		// when user clicks search - dismiss keyboard
 		view.endEditing(true)
 	}
+	
+	// when user clicks cancel - dismiss keyboard
+	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+		view.endEditing(true)
+	}
+
+	// manage the showing/hiding of the cancel button with animation
+	func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+		searchBar.setShowsCancelButton(true, animated: true)
+		return true
+	}
+	func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+		searchBar.setShowsCancelButton(false, animated: true)
+		return true
+	}
+	
 }
