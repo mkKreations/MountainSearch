@@ -16,6 +16,7 @@ class MountainsViewController: UIViewController {
 	
 	
 	// MARK: internal properties
+	private var searchBar: UISearchBar!
 	private var controller: MountainsController = MountainsController()
 	private var dataSource: UICollectionViewDiffableDataSource<Section, Mountain>!
 	private var collectionView: UICollectionView!
@@ -37,11 +38,28 @@ class MountainsViewController: UIViewController {
 		
 		edgesForExtendedLayout = []
 		
+		configureSearchBar()
 		configureCollectionView()
 		configureDatasource() // configure datasource
 		snapshotMountains() // initial snapshot
 	}
 	
+	
+	// MARK: search bar configuration
+	private func configureSearchBar() {
+		searchBar = UISearchBar(frame: .zero)
+		searchBar.translatesAutoresizingMaskIntoConstraints = false
+		searchBar.searchTextField.backgroundColor = .black
+		searchBar.barTintColor = .lightGray
+		view.addSubview(searchBar)
+		
+		layoutSearchBar()
+	}
+	private func layoutSearchBar() {
+		searchBar.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+		searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+		searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+	}
 	
 	// MARK: collectionView configuration
 	private func configureCollectionView() {
@@ -54,7 +72,7 @@ class MountainsViewController: UIViewController {
 		layoutCollectionView()
 	}
 	private func layoutCollectionView() {
-		collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+		collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor).isActive = true
 		collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 		collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
 		collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
