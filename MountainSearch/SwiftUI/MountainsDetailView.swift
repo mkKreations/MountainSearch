@@ -9,16 +9,20 @@
 import SwiftUI
 
 struct MountainsDetailView: View {
+	var mountain: Mountain
+	
 	var body: some View {
 		Text("MountainsDetailView")
 	}
 }
 
 struct MountainsDetailView_Preview: PreviewProvider {
+	static var controller = MountainsController()
+
 	static var previews: some View {
 		Group {
-			MountainsDetailView()
-			MountainsDetailView()
+			MountainsDetailView(mountain: controller.mountains.first!)
+			MountainsDetailView(mountain: controller.mountains.first!)
 				.previewDevice("iPhone Xs Max")
 		}
 	}
