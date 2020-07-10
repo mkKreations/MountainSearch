@@ -51,6 +51,7 @@ class MountainsViewController: UIViewController {
 		searchBar.translatesAutoresizingMaskIntoConstraints = false
 		searchBar.searchTextField.backgroundColor = .black
 		searchBar.barTintColor = .lightGray
+		searchBar.delegate = self
 		view.addSubview(searchBar)
 		
 		layoutSearchBar()
@@ -110,5 +111,11 @@ class MountainsViewController: UIViewController {
 		section.contentInsets = NSDirectionalEdgeInsets(top: 25.0, leading: 8.0, bottom: 25.0, trailing: 8.0)
 		
 		return UICollectionViewCompositionalLayout(section: section)
+	}
+}
+
+extension MountainsViewController: UISearchBarDelegate {
+	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+		print(searchText)
 	}
 }
