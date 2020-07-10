@@ -82,7 +82,8 @@ class MountainsViewController: UIViewController {
 		
 		let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
 																					 heightDimension: .absolute(40.0))
-		let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+		let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
+		group.interItemSpacing = .fixed(8.0)
 		
 		let section = NSCollectionLayoutSection(group: group)
 		section.interGroupSpacing = 8.0
