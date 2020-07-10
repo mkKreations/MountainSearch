@@ -85,6 +85,7 @@ class MountainsViewController: UIViewController {
 		let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 		
 		let section = NSCollectionLayoutSection(group: group)
+		section.interGroupSpacing = 8.0
 		section.contentInsets = NSDirectionalEdgeInsets(top: 25.0, leading: 8.0, bottom: 25.0, trailing: 8.0)
 		
 		return UICollectionViewCompositionalLayout(section: section)
