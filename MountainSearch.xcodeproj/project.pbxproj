@@ -26,7 +26,7 @@
 		2C239A0424B7D9D6006E3FEF /* MountainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainCell.swift; sourceTree = "<group>"; };
 		2C239A0724B7E068006E3FEF /* UIColor+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extensions.swift"; sourceTree = "<group>"; };
 		2C43B82624B91DB300912A35 /* MountainsCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsCollectionViewDelegate.swift; sourceTree = "<group>"; };
-		2C5E510D24B3760400CBE858 /* Mountain Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mountain Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C5E510D24B3760400CBE858 /* Mountains.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mountains.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C5E511024B3760400CBE858 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C5E511724B3760400CBE858 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2C5E511924B3760700CBE858 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 		2C5E510E24B3760400CBE858 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2C5E510D24B3760400CBE858 /* Mountain Search.app */,
+				2C5E510D24B3760400CBE858 /* Mountains.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,7 +153,7 @@
 			);
 			name = MountainSearch;
 			productName = MountainSearch;
-			productReference = 2C5E510D24B3760400CBE858 /* Mountain Search.app */;
+			productReference = 2C5E510D24B3760400CBE858 /* Mountains.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -369,7 +369,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mkKreations.MountainSearch;
-				PRODUCT_NAME = "Mountain Search";
+				PRODUCT_NAME = Mountains;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -388,7 +388,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mkKreations.MountainSearch;
-				PRODUCT_NAME = "Mountain Search";
+				PRODUCT_NAME = Mountains;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
