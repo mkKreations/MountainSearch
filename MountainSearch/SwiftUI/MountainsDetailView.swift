@@ -16,6 +16,7 @@ struct MountainsDetailView: View {
 		Form {
 			MountainsDetailCell(mountain: mountain)
 		}
+		.disabled(true) // prevents scrolling
 	}
 }
 
