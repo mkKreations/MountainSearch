@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class MountainsViewController: UIViewController {
 	// this nested enum will represent our sections within collectionView
@@ -20,6 +21,8 @@ class MountainsViewController: UIViewController {
 	private var controller: MountainsController = MountainsController()
 	private var dataSource: UICollectionViewDiffableDataSource<Section, Mountain>!
 	private var collectionView: UICollectionView!
+	private let collectionViewDelegate = MountainsCollectionViewDelegate()
+	private var currentSearchTerm: String? // always keep track of searchTerm
 
 	
 	// MARK: initializers
@@ -36,12 +39,16 @@ class MountainsViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		title = "Mountains Search"
+		
 		edgesForExtendedLayout = []
 		
 		configureSearchBar()
 		configureCollectionView()
 		configureDatasource() // configure datasource
 		snapshotMountains(forSearchTerm: nil) // initial snapshot
+		
+		collectionViewDelegate.delegate = self
 	}
 	
 	
@@ -69,6 +76,7 @@ class MountainsViewController: UIViewController {
 		collectionView.translatesAutoresizingMaskIntoConstraints = false
 		collectionView.backgroundColor = .darkBackgroundColor
 		collectionView.register(MountainsCell.self, forCellWithReuseIdentifier: MountainsCell.reuseIdentifier)
+		collectionView.delegate = collectionViewDelegate
 		view.addSubview(collectionView)
 		
 		layoutCollectionView()
@@ -117,11 +125,25 @@ class MountainsViewController: UIViewController {
 }
 
 
+// MARK: collectionView delegate logic
+extension MountainsViewController: MountainsSelectionDelegate {
+	func didSelectMountain(atIndexPath indexPath: IndexPath) {
+		// get our selected Mountain
+		let selectedMountain = controller.filteredMountains(forSearchTerm: currentSearchTerm)[indexPath.row]
+		print(selectedMountain.name)
+		// pass in Mountain as dependency to our SwiftUI view nested within UIHostingController
+		let detailVC = UIHostingController(rootView: MountainsDetailView(mountain: selectedMountain))
+		navigationController?.pushViewController(detailVC, animated: true) // pushhhh
+	}
+}
+
+
 // MARK: search bar delegate logic
 extension MountainsViewController: UISearchBarDelegate {
 	// tracking as user searches
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 		print(searchText)
+		currentSearchTerm = searchText
 		snapshotMountains(forSearchTerm: searchText)
 	}
 
