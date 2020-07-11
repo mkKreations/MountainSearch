@@ -19,6 +19,7 @@
 		2C5E512A24B37F1D00CBE858 /* MountainsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5E512924B37F1D00CBE858 /* MountainsController.swift */; };
 		2C70D22B24B3D892009B6744 /* MountainsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C70D22A24B3D892009B6744 /* MountainsViewController.swift */; };
 		2CE4CDA924B924B40010964C /* MountainsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4CDA824B924B40010964C /* MountainsDetailView.swift */; };
+		2CE4CDAB24B94F810010964C /* MountainsDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4CDAA24B94F810010964C /* MountainsDetailCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		2C5E512924B37F1D00CBE858 /* MountainsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsController.swift; sourceTree = "<group>"; };
 		2C70D22A24B3D892009B6744 /* MountainsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsViewController.swift; sourceTree = "<group>"; };
 		2CE4CDA824B924B40010964C /* MountainsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsDetailView.swift; sourceTree = "<group>"; };
+		2CE4CDAA24B94F810010964C /* MountainsDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsDetailCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				2CE4CDA824B924B40010964C /* MountainsDetailView.swift */,
+				2CE4CDAA24B94F810010964C /* MountainsDetailCell.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				2C5E512624B37C8E00CBE858 /* MountainsRawData.swift in Sources */,
 				2C70D22B24B3D892009B6744 /* MountainsViewController.swift in Sources */,
 				2C239A0824B7E068006E3FEF /* UIColor+extensions.swift in Sources */,
+				2CE4CDAB24B94F810010964C /* MountainsDetailCell.swift in Sources */,
 				2CE4CDA924B924B40010964C /* MountainsDetailView.swift in Sources */,
 				2C5E511124B3760400CBE858 /* AppDelegate.swift in Sources */,
 				2C239A0524B7D9D6006E3FEF /* MountainCell.swift in Sources */,
