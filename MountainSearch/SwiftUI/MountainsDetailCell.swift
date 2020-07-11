@@ -13,7 +13,14 @@ struct MountainsDetailCell: View {
 	var mountain: Mountain
 	
 	var body: some View {
-		Text(mountain.name)
+		VStack(alignment: .leading) {
+			Text(mountain.name)
+				.foregroundColor(.primary)
+			
+			Text("Altitude: \(mountain.height) meters")
+				.font(.subheadline)
+				.foregroundColor(.secondary)
+		}
 	}
 }
 
