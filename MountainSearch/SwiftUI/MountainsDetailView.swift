@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct MountainsDetailView: View {
+	// just displaying data no property wrapper needed
 	var mountain: Mountain
 	
 	var body: some View {

@@ -9,16 +9,21 @@
 import SwiftUI
 
 struct MountainsDetailCell: View {
+	// just displaying data no property wrapper needed
+	var mountain: Mountain
+	
 	var body: some View {
-		Text("MountainsDetailCell")
+		Text(mountain.name)
 	}
 }
 
 struct MountainsDetailCell_Preview: PreviewProvider {
+	static var controller = MountainsController()
+	
 	static var previews: some View {
 		Group {
-			MountainsDetailCell()
-			MountainsDetailCell()
+			MountainsDetailCell(mountain: controller.mountains.last!)
+			MountainsDetailCell(mountain: controller.mountains.last!)
 				.previewDevice("iPhone Xs Max")
 		}
 	}
