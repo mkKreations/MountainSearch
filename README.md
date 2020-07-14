@@ -35,6 +35,7 @@ on UIKit and is designed to run on devices running iOS11 and up.
 
 - Manages indexPaths to create seamless search animation as user types
 - Uses custom classes to manage all aspects of UICollectionView
+- Utilizes UISearchController to manage results of UICollectionView
 - Loads raw data from CSV
 
 
