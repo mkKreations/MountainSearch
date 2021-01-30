@@ -133,6 +133,7 @@ extension MountainsViewController: MountainsSelectionDelegate {
 		print(selectedMountain.name)
 		// pass in Mountain as dependency to our SwiftUI view nested within UIHostingController
 		let detailVC = UIHostingController(rootView: MountainsDetailView(mountain: selectedMountain))
+		detailVC.title = selectedMountain.name
 		navigationController?.pushViewController(detailVC, animated: true) // pushhhh
 	}
 }
