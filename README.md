@@ -1,5 +1,11 @@
 # MountainSearch
 
+<p>
+  <img src="https://img.shields.io/badge/iOS-13.0+-blue.svg" />
+  <img src="https://img.shields.io/badge/Swift-5.0-brightgreen.svg" />
+</p>
+
+
 - Check out the branch **master** to see the primary version of this app!
 - Click here to visit the Sketch repos used to create all assets/app icon for this iOS app:
 [MountainSearch_Sketch](https://github.com/mkKreations/MountainSearch_Sketch)
