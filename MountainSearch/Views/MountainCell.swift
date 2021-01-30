@@ -20,7 +20,7 @@ class MountainsCell: UICollectionViewCell {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		
-		contentView.backgroundColor = .darkBackgroundColor
+		contentView.backgroundColor = .systemBackground
 		
 		contentView.layer.borderColor = UIColor.darkGray.cgColor
 		contentView.layer.borderWidth = 1.0

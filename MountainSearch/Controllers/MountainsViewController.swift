@@ -56,8 +56,8 @@ class MountainsViewController: UIViewController {
 	private func configureSearchBar() {
 		searchBar = UISearchBar(frame: .zero)
 		searchBar.translatesAutoresizingMaskIntoConstraints = false
-		searchBar.searchTextField.backgroundColor = .black
-		searchBar.barTintColor = .lightGray
+		searchBar.searchTextField.backgroundColor = .systemBackground
+		searchBar.barTintColor = .systemGray3
 		searchBar.delegate = self
 		view.addSubview(searchBar)
 		
@@ -74,7 +74,7 @@ class MountainsViewController: UIViewController {
 	private func configureCollectionView() {
 		collectionView = UICollectionView(frame: .zero, collectionViewLayout: configureCompositionalLayout())
 		collectionView.translatesAutoresizingMaskIntoConstraints = false
-		collectionView.backgroundColor = .darkBackgroundColor
+		collectionView.backgroundColor = .systemBackground
 		collectionView.register(MountainsCell.self, forCellWithReuseIdentifier: MountainsCell.reuseIdentifier)
 		collectionView.delegate = collectionViewDelegate
 		view.addSubview(collectionView)
