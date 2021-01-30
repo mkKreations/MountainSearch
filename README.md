@@ -21,10 +21,10 @@ MountainSearch uses a custom app icon created in this [Sketch project](https://g
 
 ## Features
 
-- Manages changes in collectionView by taking snapshots using DiffableDatasource
-- Uses custom CompositionalLayout to create layout of items in collectionView
+- Manages changes in collection view by taking snapshots using diffable datasource
+- Uses custom compositional layout to create layout of items in collection view
 - Detail screen is built using small, reusable View components produced using SwiftUI
-- Manages UISearchBar and its state manually
+- Manages `UISearchBar` and its state manually
 - Light/Dark mode compatible
 
 
